@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bysue2mhwns65"]
+
+[ext_resource type="Script" uid="uid://dnyfcylgeqs26" path="res://paddle_2.gd" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://b5hvby04jdn2g" path="res://paddle.gd" id="1_epypp"]
+[ext_resource type="Script" uid="uid://cetw14aqcsiff" path="res://BallMovement.gd" id="1_wtcfe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_0e48y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtcfe"]
+size = Vector2(20, 16.713837)
+
+[sub_resource type="QuadMesh" id="QuadMesh_wtcfe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wtcfe"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_0e48y"]
+lightmap_size_hint = Vector2i(17, 9)
+
+[node name="Node2D" type="Node2D" unique_id=255795242]
+scale = Vector2(1.0246603, 1)
+
+[node name="Paddle" type="Area2D" parent="." unique_id=1465593519]
+position = Vector2(590, 31.000008)
+scale = Vector2(13.001699, -1.6384057)
+script = ExtResource("1_epypp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle" unique_id=390691503]
+shape = SubResource("RectangleShape2D_0e48y")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Paddle" unique_id=513513014]
+scale = Vector2(20.012125, -20.060114)
+mesh = SubResource("QuadMesh_0e48y")
+
+[node name="Paddle2" type="Area2D" parent="." unique_id=553370117]
+position = Vector2(600, 614)
+scale = Vector2(15.695276, -1.6384057)
+script = ExtResource("1_0e48y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle2" unique_id=338623191]
+position = Vector2(0, 1.6430664)
+scale = Vector2(1, 0.99999994)
+shape = SubResource("RectangleShape2D_wtcfe")
+debug_color = Color(0, 0.60292447, 0.68485266, 0.41960785)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Paddle2" unique_id=1983357101]
+position = Vector2(0, 1.6619374)
+scale = Vector2(20.031305, 16.751553)
+mesh = SubResource("QuadMesh_wtcfe")
+
+[node name="Ball" type="Area2D" parent="." unique_id=2094595610]
+position = Vector2(425.50684, 556)
+script = ExtResource("1_wtcfe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=1265329509]
+shape = SubResource("CircleShape2D_wtcfe")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Ball" unique_id=166532345]
+scale = Vector2(19.758121, 20.238823)
+mesh = SubResource("SphereMesh_0e48y")
